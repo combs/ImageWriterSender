@@ -2,7 +2,7 @@
 
 This is a simple serial sender for sending preprocessed ImageWriter output via an attached PL2303 USB serial adapter on Linux. 
 
-It ma also work with other platforms or adapters.
+It may also work with other platforms or adapters.
 
 Tested platforms:
 - Linux kernel 6.19.14
