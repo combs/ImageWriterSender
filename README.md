@@ -21,9 +21,13 @@ usage: iwsend.py [-h] [-b BAUD] [-d DEVICE] [-t TIMEOUT] filename
 ### Parameters
 
 `-b 1200, 2400, 9600` - Baud/bit rate. Set this to match your [DIP switch settings on the ImageWriter SW2 block](https://www.nefec.org/upm/printers/mapiw2.htm).
+
 `-d /dev/ttyUSB0` - Specify the exact terminal device to open. Typically /dev/ttyUSB0, but could be ttyACM0, ttyAMA0, ttyS0, others
+
 `-t 10` - Timeout for reads from the printer. But we don't read from the printer so it doesn't matter. 
+
 `[filename]` - This must be a preprocessed serial stream ready for the ImageWriter. See below.
+
 
 ## Generating the serial stream
 
