@@ -45,6 +45,16 @@ Once you've got GhostScript 10.08.0 or newer up and running, here's a general wo
 - Use gs to generate a raw ImageWriter stream and save it to a file: `gs -sDEVICE=iwhic -o OUTFILE.iwhic INFILE.pdf`
 - Use this repo's `iwsend.py` to send the stream to the printer: `python3 iwsend.py OUTFILE.iwhic`
 
+### B&W graphics
+
+A black-and-white ImageWriter driver, `iwhi`, is available in most installs of GhostScript.
+
+Here's a general workflow:
+
+- Use a GUI application to generate a PDF of the appropriate size, up to 8.5in wide. This is a hard limit. It must be exactly at or under 8.5in. 
+- Use gs to generate a raw ImageWriter stream and save it to a file: `gs -sDEVICE=iwhi -o OUTFILE.iwhi INFILE.pdf`
+- Use this repo's `iwsend.py` to send the stream to the printer: `python3 iwsend.py OUTFILE.iwhi`
+
 
 ## License
 
