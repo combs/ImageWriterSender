@@ -10,6 +10,20 @@ Tested platforms:
 Tested serial adapters:
 - PL2303-based
 
+## Why use it?
+
+It is possible to pipe files directly to the ImageWriter via the serial device, using `stty` to configure flow control. However, I have found that this method injects stray characters and skips lines sometimes.
+
+Here is a before-and-after showing a raw serial-device print (using `stty -F /dev/ttyUSB0 9600 crtscts cs8 -cstopb -parenb`) versus this Python sender on the same machine:
+
+### Stray characters, skipped carriage returns, skipped lines (using raw serial port)
+
+![Bad image showing stray characters and some repeated/skipped lines](docs/output-bad.jpg)
+
+### No stray characters (using ImageWriterSender)
+
+![Good image showing no characters](docs/output-good.jpg)
+
 ## Usage
 
 ```
@@ -54,6 +68,11 @@ Here's a general workflow:
 - Use a GUI application to generate a PDF of the appropriate size, up to 8.5in wide. This is a hard limit. It must be exactly at or under 8.5in. 
 - Use gs to generate a raw ImageWriter stream and save it to a file: `gs -sDEVICE=iwhi -o OUTFILE.iwhi INFILE.pdf`
 - Use this repo's `iwsend.py` to send the stream to the printer: `python3 iwsend.py OUTFILE.iwhi`
+
+
+## Backstory
+
+I wrote this simple script as part of my practitioner-in-residence period at the [Media Archaeology Lab](https://www.mediaarchaeologylab.com).
 
 
 ## License

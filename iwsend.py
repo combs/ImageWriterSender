@@ -1,5 +1,4 @@
-import argparse, math, sys, time, traceback, tqdm
-import serial
+import argparse, math, serial, time, tqdm
 
 parser = argparse.ArgumentParser(description="Send a preprocessed output file to an attached ImageWriter with flow control.")
 parser.add_argument("-b", "--baud", help="Baud rate (1200, 2400, or 9600)", type=int, default=9600)
